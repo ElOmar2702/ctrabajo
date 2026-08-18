@@ -6,40 +6,40 @@ import './App.css';
 const PRODUCTOS_CATALOGO = [
   {
     id: 1,
-    nombre: "Café Especial de Origen",
-    descripcion: "Café en grano 100% Arábica con notas a chocolate, caramelo y un tueste artesanal medio.",
+    nombre: "Café",
+    descripcion: "Café en grano",
     precio: 28000,
     categoria: "Cafetería",
     imagen: heroImg
   },
   {
     id: 2,
-    nombre: "Set de Tazas Cerámicas",
-    descripcion: "Juego de 2 tazas artesanales de cerámica con acabado mate, ideales para filtrados.",
+    nombre: "Pastel",
+    descripcion: "Pastel Delicioso",
     precio: 45000,
     categoria: "Accesorios",
     imagen: downloadImg
   },
   {
     id: 3,
-    nombre: "Prensa Francesa 600ml",
-    descripcion: "Cafetera de émbolo en vidrio borosilicato resistente al calor y filtro de acero inoxidable.",
+    nombre: "Otro Cafe",
+    descripcion: "Café super delicioso y natural",
     precio: 62000,
     categoria: "Métodos",
     imagen: heroImg
   },
   {
     id: 4,
-    nombre: "Molinillo Manual de Café",
-    descripcion: "Molinillo con muelas cerámicas ajustables para un molido uniforme desde espresso hasta prensa.",
+    nombre: "Otro pastel",
+    descripcion: "Un pastel muy delicioso",
     precio: 85000,
     categoria: "Molinillos",
     imagen: downloadImg
   },
   {
     id: 5,
-    nombre: "Goteador V60 Cerámico",
-    descripcion: "Dripper para extracción por goteo con diseño cónico acanalado para optimizar el flujo de agua.",
+    nombre: "Café pero mejor",
+    descripcion: "es otro café que es mas rico",
     precio: 38000,
     categoria: "Métodos",
     imagen: heroImg
@@ -52,9 +52,8 @@ function App() {
       <header className="encabezado-app">
         <div className="hero-banner">
           <div className="hero-texto">
-            <span className="badge-sena">SENA - Ficha 3409609</span>
             <h1>Catálogo de Productos</h1>
-            <p>Explora nuestra selección exclusiva de accesorios y café especial.</p>
+            <p>Explora el café y pasteles que tenemos para ofrecerte.</p>
           </div>
           <img src={heroImg} alt="Hero Banner" className="hero-imagen" />
         </div>
