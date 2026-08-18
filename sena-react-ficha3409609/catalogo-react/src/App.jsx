@@ -1,5 +1,5 @@
 import Producto from './components/producto';
-import heroImg from './assets/hero.png';
+import heroImg from './components/A1.jpg';
 import downloadImg from './components/download.jpg';
 import './App.css';
 
