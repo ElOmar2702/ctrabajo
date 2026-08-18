@@ -1,125 +1,90 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-import Producto from './components/Producto'
+import Producto from './components/producto';
+import heroImg from './assets/hero.png';
+import downloadImg from './components/download.jpg';
+import './App.css';
+
+const PRODUCTOS_CATALOGO = [
+  {
+    id: 1,
+    nombre: "Café Especial de Origen",
+    descripcion: "Café en grano 100% Arábica con notas a chocolate, caramelo y un tueste artesanal medio.",
+    precio: 28000,
+    categoria: "Cafetería",
+    imagen: heroImg
+  },
+  {
+    id: 2,
+    nombre: "Set de Tazas Cerámicas",
+    descripcion: "Juego de 2 tazas artesanales de cerámica con acabado mate, ideales para filtrados.",
+    precio: 45000,
+    categoria: "Accesorios",
+    imagen: downloadImg
+  },
+  {
+    id: 3,
+    nombre: "Prensa Francesa 600ml",
+    descripcion: "Cafetera de émbolo en vidrio borosilicato resistente al calor y filtro de acero inoxidable.",
+    precio: 62000,
+    categoria: "Métodos",
+    imagen: heroImg
+  },
+  {
+    id: 4,
+    nombre: "Molinillo Manual de Café",
+    descripcion: "Molinillo con muelas cerámicas ajustables para un molido uniforme desde espresso hasta prensa.",
+    precio: 85000,
+    categoria: "Molinillos",
+    imagen: downloadImg
+  },
+  {
+    id: 5,
+    nombre: "Goteador V60 Cerámico",
+    descripcion: "Dripper para extracción por goteo con diseño cónico acanalado para optimizar el flujo de agua.",
+    precio: 38000,
+    categoria: "Métodos",
+    imagen: heroImg
+  }
+];
+
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="contenedor-principal">
+      <header className="encabezado-app">
+        <div className="hero-banner">
+          <div className="hero-texto">
+            <span className="badge-sena">SENA - Ficha 3409609</span>
+            <h1>Catálogo de Productos</h1>
+            <p>Explora nuestra selección exclusiva de accesorios y café especial.</p>
+          </div>
+          <img src={heroImg} alt="Hero Banner" className="hero-imagen" />
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      <main className="seccion-catalogo">
+        <div className="catalogo-header">
+          <h2>Nuestros Productos ({PRODUCTOS_CATALOGO.length})</h2>
+          <p>Componentes reutilizables renderizados dinámicamente con React y Vite.</p>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-      <Producto />
-    </>
-  )
+        <div className="grid-productos">
+          {PRODUCTOS_CATALOGO.map((producto) => (
+            <Producto
+              key={producto.id}
+              nombre={producto.nombre}
+              descripcion={producto.descripcion}
+              precio={producto.precio}
+              categoria={producto.categoria}
+              imagen={producto.imagen}
+            />
+          ))}
+        </div>
+      </main>
+
+      <footer className="pie-pagina">
+        <p>&copy; 2026 Catálogo React SENA | Desarrollado con Vite y React</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
